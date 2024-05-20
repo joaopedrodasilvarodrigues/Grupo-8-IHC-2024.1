@@ -12,6 +12,7 @@ library(corrplot)
 
 
 
+
 # Dados para plotar
 l<-dados$Com.que.frequência.você.utiliza.o.CD.Moj.
 m<-dados$Com.que.frequência.você.utiliza.bot.do.telegram..Mojinho.
@@ -21,6 +22,7 @@ p<-dados$Qual.a.sua.dificuldade.de.interpretar.o.feedback.da.questão..e.g..WA..
 q<-dados$Caso.tenha.usado.o..Mojinho..Quão.difícil.é.interpretar.o.log.
 r<-dados$Quão.difícil.é.achar.o.login.certo.para.a.lista.que.você.quer.fazer.
 
+z<- dados$Caso.tenha.usado.o..Mojinho..Quão.difícil.é.interpretar.o.log.[!sapply(dados$Caso.tenha.usado.o..Mojinho..Quão.difícil.é.interpretar.o.log., is.na)] 
 
 
 
@@ -83,11 +85,11 @@ cat("\n\n\n")
 print("Gráficos para a coluna: Caso tenha usado o @Mojinho, Quão difícil é interpretar o log?")
 cat("\n\n\n")
 
-plot(q, type="l", main="Caso tenha usado o @Mojinho, Quão difícil é interpretar o log?", xlab="Eixo X", ylab="Eixo Y", col="red")
+plot(z, type="l", main="Caso tenha usado o @Mojinho, Quão difícil é interpretar o log?", xlab="Eixo X", ylab="Eixo Y", col="red")
 categorias <- "Respostas"
 
 # Criando um gráfico de barras
-barplot(q, names.arg=categorias, col="cyan", main="Caso tenha usado o @Mojinho, Quão difícil é interpretar o log?", ylab="Valores")
+barplot(z, names.arg=categorias, col="cyan", main="Caso tenha usado o @Mojinho, Quão difícil é interpretar o log?", ylab="Valores")
 
 
 
